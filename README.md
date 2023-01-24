@@ -1,25 +1,38 @@
-# <repo_name>
+# Branch Exists Action
 
-[![Security Pipeline](https://github.com/GuillaumeFalourd/<repo_name>/actions/workflows/security-pipeline.yml/badge.svg)](https://github.com/GuillaumeFalourd/<repo_name>/actions/workflows/security-pipeline.yml) [![Super Linter](https://github.com/GuillaumeFalourd/<repo_name>/actions/workflows/super-linter.yml/badge.svg)](https://github.com/GuillaumeFalourd/<repo_name>/actions/workflows/super-linter.yml) [![Gitleaks](https://github.com/GuillaumeFalourd/<repo_name>/actions/workflows/gitleaks.yml/badge.svg)](https://github.com/GuillaumeFalourd/<repo_name>/actions/workflows/gitleaks.yml)
+<!-- markdownlint-disable MD013 -->
+[![Action test on Ubuntu](https://github.com/GuillaumeFalourd/branch-exists/actions/workflows/ubuntu_action_test.yml/badge.svg)](https://github.com/GuillaumeFalourd/branch-exists/actions/workflows/ubuntu_action_test.yml) [![Action test on MacOS](https://github.com/GuillaumeFalourd/branch-exists/actions/workflows/macos_action_test.yml/badge.svg)](https://github.com/GuillaumeFalourd/branch-exists/actions/workflows/macos_action_test.yml) [![Action test on Windows](https://github.com/GuillaumeFalourd/branch-exists/actions/workflows/windows_action_test.yml/badge.svg)](https://github.com/GuillaumeFalourd/branch-exists/actions/workflows/windows_action_test.yml)
+<!-- markdownlint-enable MD013 -->
 
-☞ Github repository template to create other personal repositories 🧑‍💻🏗
+☞ GitHub Action to check if a branch exists in the current repo :octocat:
 
-## 📚 What is Lorem Ipsum?
+## 📚 Usage
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+```yaml
+- id: check-branch-exists
+  uses: GuillaumeFalourd/branch-exists@v1
+  with:
+    branch: <BRANCH_NAME>
+
+- if: ${{ steps.check-branch-exists.outputs.exists }} == 'true'
+  run: echo '<BRANCH_NAME> Branch exists'
+
+- if: ${{ steps.check-branch-exists.outputs.exists }} == 'false'
+  run: echo '<BRANCH_NAME> Branch DOESN'T exist'
+```
 
 ## 🤝 Contributing
 
-☞ If you're interested in contributing to this repository, please follow the [guidelines](https://github.com/GuillaumeFalourd/<repo_name>/blob/main/CONTRIBUTING.md)
+☞ If you're interested in contributing to this repository, please follow the [guidelines](https://github.com/GuillaumeFalourd/branch-exists/blob/main/CONTRIBUTING.md)
 
 ## 🏅 Licensed
 
-☞ This repository uses the [Apache License 2.0](https://github.com/GuillaumeFalourd/<repo_name>/blob/main/LICENSE)
+☞ This repository uses the [Apache License 2.0](https://github.com/GuillaumeFalourd/branch-exists/blob/main/LICENSE)
 
 <!-- ### Contribuidores
 
-<a href="https://github.com/GuillaumeFalourd/<repo_name>/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=GuillaumeFalourd/<repo_name>" />
+<a href="https://github.com/GuillaumeFalourd/branch-exists/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=GuillaumeFalourd/branch-exists" />
 </a>
 
 (Criado com [contributors-img](https://contrib.rocks)) -->
