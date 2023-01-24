@@ -30,3 +30,5 @@ runs:
               echo "exists=false" >> $GITHUB_OUTPUT          
           fi
       shell: bash
+    - name: Checkout output
+      run: echo 'EXISTS = ${{ steps.check-branch-exists.outputs.exists }}'
