@@ -15,8 +15,10 @@ jobs:
         with:
           branch: main
 
-      - if: ${{ steps.check-branch-exists.outputs.exists }} == 'true'
+      - run: echo ${{ steps.check-branch-exists.outputs.exists }}
+
+      - if: steps.check-branch-exists.outputs.exists == 'true'
         run: echo 'main branch exists'
 
-      - if: ${{ steps.check-branch-exists.outputs.exists }} == 'false'
+      - if: steps.check-branch-exists.outputs.exists == 'false'
         run: echo 'main branch NOT FOUND'
