@@ -14,10 +14,10 @@
   with:
     branch: <BRANCH_NAME>
 
-- if: ${{ steps.check-branch-exists.outputs.exists }} == 'true'
+- if: steps.check-branch-exists.outputs.exists == 'true'
   run: echo '<BRANCH_NAME> Branch exists'
 
-- if: ${{ steps.check-branch-exists.outputs.exists }} == 'false'
+- if: steps.check-branch-exists.outputs.exists == 'false'
   run: echo '<BRANCH_NAME> Branch NOT FOUND'
 ```
 
