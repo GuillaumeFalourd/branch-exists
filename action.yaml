@@ -1,0 +1,32 @@
+name: Branch exists 
+
+description: 'GitHub Action to check if a branch exists in the current repo :octocat:'
+
+branding:
+  icon: 'alert-triangle'
+  color: 'orange'
+
+inputs:
+  branch:
+    description: 'Branch name to check'
+    required: true
+
+outputs:
+  exists:
+    description: "If informed branch exists or not"
+    value: ${{ steps.check-branch-exists.outputs.exists }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Check if branch exists
+      id: check-branch-exists
+      run: |
+          if [[ -n $(git ls-remote --heads origin ${{ inputs.branch }}) ]]; then
+              echo "exists=true" >> $GITHUB_OUTPUT
+          elif
+              echo "exists=false" >> $GITHUB_OUTPUT          
+          fi
+      shell: bash
