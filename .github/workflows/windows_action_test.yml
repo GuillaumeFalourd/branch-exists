@@ -13,10 +13,10 @@ jobs:
       - id: check-branch-exists
         uses: GuillaumeFalourd/branch-exists@main
         with:
-          branch: <BRANCH_NAME>
+          branch: main
 
       - if: ${{ steps.check-branch-exists.outputs.exists }} == 'true'
-        run: echo '<BRANCH_NAME> Branch exists'
+        run: echo 'main Branch exists'
 
       - if: ${{ steps.check-branch-exists.outputs.exists }} == 'false'
-        run: echo '<BRANCH_NAME> Branch DOESN'T exist'
+        run: echo 'main Branch DOESN'T exist'
