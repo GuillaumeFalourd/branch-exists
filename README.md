@@ -18,7 +18,7 @@
   run: echo '<BRANCH_NAME> Branch exists'
 
 - if: ${{ steps.check-branch-exists.outputs.exists }} == 'false'
-  run: echo '<BRANCH_NAME> Branch DOESN'T exist'
+  run: echo '<BRANCH_NAME> Branch NOT FOUND'
 ```
 
 ## 🤝 Contributing
