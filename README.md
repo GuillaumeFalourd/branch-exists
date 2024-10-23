@@ -10,7 +10,7 @@
 
 ```yaml
 - id: check-branch-exists
-  uses: GuillaumeFalourd/branch-exists@v1
+  uses: GuillaumeFalourd/branch-exists@v1.1
   with:
     branch: <BRANCH_NAME>
 
