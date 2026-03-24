@@ -20,7 +20,7 @@ runs:
   using: "composite"
   steps:
     - name: Checkout
-      uses: actions/checkout@v4.2.1
+      uses: actions/checkout@v6.0.2
     - name: Check if branch exists
       id: check-branch-exists
       run: |
